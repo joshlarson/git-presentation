@@ -601,7 +601,21 @@
       \pause
     \item I call this a \textbf{semantic conflict}.
     \end{itemize}
-  \item Because of this, merges should \textit{always} involve human intervention and sanity-checking. They \textit{cannot be automated}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Merging and Intentions}
+
+  \begin{itemize}
+    \pause
+  \item Merging creates an ancestry relationship between divergent changes where there wasn't one before.
+    \pause
+  \item The new merge commit is an ancestor to both sets of changes.
+    \pause
+  \item That is, the merge commit now reveals our \textit{intention} about how those changes should be combined.
+    \pause
+  \item (There are other ways to do this, but merge commits are one of the easiest, and in some ways, most robust)
   \end{itemize}
 \end{frame}
 
