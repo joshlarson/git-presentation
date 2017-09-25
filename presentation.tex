@@ -489,7 +489,11 @@
     \pause
   \item Commit $A$ is an \textbf{ancestor} of commit $B$ if $A$ is $B$'s parent, or $B$'s parent's parent, or so on.
     \pause
-  \item Semantically, this means that there are no changes on $A$ that $B$ doesn't also know about.
+    \begin{itemize}
+      \pause
+    \item We might also say that $B$ is \textbf{ahead of} $A$.
+    \end{itemize}
+  \item This means that there are no changes on $A$ that $B$ doesn't also know about.
     \pause
   \item Commit $A$ being an ancestor of $B$ shows \textit{intention}.
     \begin{itemize}
@@ -498,8 +502,10 @@
     \end{itemize}
     \pause
   \item Commits without an ancestry relationship leave that intention ambiguous.
-    \pause
-  \item We might also say that $B$ is \textbf{ahead of} $A$.
+    \begin{itemize}
+      \pause
+    \item We sometimes say that commits with no ancestry relationship have \textbf{diverged}, or are \textbf{divergent}.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
