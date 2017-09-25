@@ -625,10 +625,72 @@
   \frametitle{remotes/origin}
   \begin{itemize}
     \pause
-  \item The most common git workflow is to \textbf{clone} a remote repository.
+  \item The most common git workflow is to clone a remote repository and then push to and pull from that.
     \pause
-  \item That means downloading each of the commits from that repository.
+  \item To \textbf{clone} a repository means to download each of the commits from that repository, and check out some default (usually \texttt{master}).
+    \pause
+  \item \textbf{Push}ing and \textbf{pull}ing mean sending new commits back and forth between the local copy and the remote.
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \begin{tikzpicture}
+      \anoncommit{remotecommit1}{(-4, 1.5)}
+      \anoncommit{remotecommit2}{(-2, 1.5)}
+      \draw (remotecommit1) -- (remotecommit2);
+      
+      \uncover<11->{
+        \anoncommit{remotecommit3}{(0, 1.5)}
+        \draw (remotecommit2) -- (remotecommit3);
+      }
+
+      \uncover<1-10>{
+        \branch{remotemaster}{(-2, 2.5)}{master}
+        \draw (remotemaster) -- (remotecommit2);
+      }
+      \uncover<11->{
+        \branch{remotemaster}{(0, 2.5)}{master}
+        \draw (remotemaster) -- (remotecommit3);
+      }
+
+      \draw[dotted] (-5, 0) -- (5, 0);
+
+      \uncover<4->{
+        \anoncommit{localcommit1}{(-4, -1.5)}
+        \anoncommit{localcommit2}{(-2, -1.5)}
+        \draw (localcommit1) -- (localcommit2);
+      }
+      \uncover<14->{
+        \anoncommit{localcommit3}{(0, -1.5)}
+        \draw (localcommit2) -- (localcommit3);
+      }
+      
+      \uncover<6-13>{
+        \branch{originmaster}{(-2, -2.5)}{origin/master}
+        \draw (originmaster) -- (localcommit2);
+      }
+      \uncover<14->{
+        \branch{originmaster}{(0, -2.5)}{origin/master}
+        \draw (originmaster) -- (localcommit3);
+      }
+
+      \uncover<8->{
+        \branch{localmaster}{(-2, -0.5)}{master}
+        \draw (localmaster) -- (localcommit2);
+      }
+      
+
+      \uncover<2-4>{\textbox{}{(0, 4)}{Cloning a repository copies all of the commits}}
+      \uncover<5-6>{\textbox{}{(0, 4)}{And creates local copies of all remote\\ branches, with the prefix \texttt{origin/}}}
+      \uncover<7-8>{\textbox{}{(0, 4)}{And checks out \texttt{master}}}
+      \uncover<10-11>{\textbox{}{(0, 4)}{The remote can change while the local isn't looking}}
+      \uncover<12->{\textbox{}{(0, 4)}{Get those new commits with \texttt{git fetch}}}
+
+      \uncover<3>{\textbox{}{(0, 0)}{\texttt{git clone path@to:remote/repo}}}
+      \uncover<13>{\textbox{}{(0, 0)}{\texttt{git fetch}}}
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \section{Rewriting History}
