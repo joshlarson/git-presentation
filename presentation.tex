@@ -532,17 +532,16 @@
       \anoncommit{commit2}{(0, 0)}
       \draw (commit1) -- (commit2);
       
-      \uncover<6-7, 21->{\selectedanoncommit{commit3}{(3, 0)}}
-      \uncover<1-5, 8-20>{\anoncommit{commit3}{(3, 0)}}
+      \uncover<6-7>{\selectedanoncommit{commit3}{(3, 0)}}
+      \uncover<1-5, 8->{\anoncommit{commit3}{(3, 0)}}
       \draw (commit2) -- (commit3);
       
-      \uncover<1-5, 8-10, 16-17>{\selectedanoncommit{commit4}{(-2, 2)}}
-      \uncover<6-7, 11-15, 18->{\anoncommit{commit4}{(-2, 2)}}
+      \uncover<1-5, 8-10>{\selectedanoncommit{commit4}{(-2, 2)}}
+      \uncover<6-7, 11->{\anoncommit{commit4}{(-2, 2)}}
       \draw (commit1) -- (commit4);
 
       \uncover<11->{
-        \uncover<11-15, 18-20>{\selectedanoncommit{commit5}{(4, 2)}}
-        \uncover<16-17, 21->{\anoncommit{commit5}{(4, 2)}}
+        \uncover<11->{\selectedanoncommit{commit5}{(4, 2)}}
         \draw (commit3) -- (commit5);
         \draw (commit4) -- (commit5);
       }
@@ -560,28 +559,25 @@
         \draw (wording) -- (commit4);
       }
       \uncover<11->{
-        \uncover<1-5, 8-15, 18-20>{\selectedbranch{wording}{(4, 3)}{wording}}
-        \uncover<6-7, 16-17, 21->{\branch{wording}{(4, 3)}{wording}}
+        \uncover<1-5, 8->{\selectedbranch{wording}{(4, 3)}{wording}}
+        \uncover<6-7>{\branch{wording}{(4, 3)}{wording}}
         \draw (wording) -- (commit5);
       }
 
-      \textbox{file}{(0, -2)}{
-        \texttt{\scriptsize \uncover<1-5, 8-10, 16-17>{There once was a walrus named Joe}}\\
-        \texttt{\scriptsize Who acted like he \only<6-7, 21->{did not}\only<1-5, 8-20>{didn't} know}\\
-        \texttt{\scriptsize \uncover<6-7, 11-15, 18->{That he wasn't in a limerick}}
+      \textbox{file}{(0, -1.5)}{
+        \texttt{\scriptsize \uncover<1-5, 8-10>{There once was a walrus named Joe}}\\
+        \texttt{\scriptsize Who acted like he \only<6-7>{did not}\only<1-5, 8->{didn't} know}\\
+        \texttt{\scriptsize \uncover<6-7, 11->{That he wasn't in a limerick}}
       }
       
       \uncover<2>{\textbox{}{(0, 4)}{\texttt{wording} has the ``did not'' $\rightarrow$ ``didn't'' change}}
       \uncover<4-6>{\textbox{}{(0, 4)}{\texttt{poetry} has the line addition and removal}}
       \uncover<9-11>{\textbox{}{(0, 4)}{Use \texttt{git merge} to pull the changes from \texttt{poetry} into \texttt{wording}}}
       \uncover<13>{\textbox{}{(0, 4)}{This two-parent commit is called a \textbf{merge commit}}}
-      \uncover<14-16>{\textbox{}{(0, 4)}{Get its primary parent with \texttt{SHA\^{}1}}}
-      \uncover<19->{\textbox{}{(0, 4)}{Get its other parent with \texttt{SHA\^{}2}}}
+      \uncover<14>{\textbox{}{(0, 4)}{The merge commit has both the original commit\\ and the merged-in commit as ancestors}}
       
       \uncover<5>{\textbox{}{(0, 2.5)}{\texttt{git checkout poetry}}}
       \uncover<10>{\textbox{}{(0, 2.5)}{\texttt{git merge poetry}}}
-      \uncover<15>{\textbox{}{(0, 2.5)}{\texttt{git checkout wording\^{}1}}}
-      \uncover<20>{\textbox{}{(0, 2.5)}{\texttt{git checkout wording\^{}2}}}
     \end{tikzpicture}  
   \end{center}
 \end{frame}
